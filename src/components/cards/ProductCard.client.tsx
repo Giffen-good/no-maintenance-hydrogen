@@ -66,13 +66,13 @@ export function ProductCard({
           {image && (
             <Image
               className="aspect-[4/5] w-full object-cover fadeIn"
-              widths={[320]}
-              sizes="320px"
+              widths={[320, 640, 960]}
+              sizes="320px 640px 960px "
               loaderOptions={{
                 crop: 'center',
                 scale: 2,
-                width: 320,
-                height: 400,
+                width: 960,
+                height: 1200,
               }}
               // @ts-ignore Stock type has `src` as optional
               data={image}
@@ -82,10 +82,7 @@ export function ProductCard({
           )}
         </div>
         <div className="grid gap-1">
-          <Text
-            className="w-full overflow-hidden whitespace-nowrap text-ellipsis "
-            as="h3"
-          >
+          <Text className="w-full line-clamp-2  " as="h3">
             {product.title}
           </Text>
           <div className="flex gap-4">

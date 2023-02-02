@@ -9,6 +9,9 @@ import {
 
 // @ts-expect-error types not available
 import typographicBase from 'typographic-base';
+import {Nullable} from "vitest";
+import {HygraphHexColor} from "~/components/hygraph/types";
+import * as CSS from "csstype";
 
 /**
  * This is a hack until we have better built-in primitives for
@@ -272,3 +275,12 @@ export function passwordValidation(password: HTMLInputElement) {
 
   return 'Password must be at least 6 characters';
 }
+export const getCSS = (
+  backgroundColor: Nullable<HygraphHexColor>,
+  textColor: Nullable<HygraphHexColor>,
+): CSS.Properties => {
+  return {
+    backgroundColor: backgroundColor?.hex || 'transparent',
+    color: textColor?.hex || 'inherit',
+  };
+};

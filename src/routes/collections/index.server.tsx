@@ -17,7 +17,6 @@ export default function Collections() {
   return (
     <Layout>
       <Seo type="page" data={{title: 'All Collections'}} />
-      <PageHeader heading="Collections" />
       <Section>
         <Suspense>
           <CollectionGrid />

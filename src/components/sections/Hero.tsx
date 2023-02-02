@@ -30,7 +30,7 @@ export function Hero({
   top?: boolean;
 }) {
   return (
-    <Link to={`/collections/${handle}`}>
+    <Link to={`/collections/nomaintenance`}>
       <section
         className={`relative justify-end flex flex-col w-full ${
           top && '-mt-nav'

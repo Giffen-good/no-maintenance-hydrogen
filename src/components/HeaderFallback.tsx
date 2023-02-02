@@ -1,11 +1,8 @@
 export function HeaderFallback({isHome}: {isHome?: boolean}) {
-  const styles = isHome
-    ? 'bg-primary/80 dark:bg-contrast/60 text-contrast dark:text-primary shadow-darkHeader'
-    : 'bg-contrast/80 text-primary';
   return (
     <header
       role="banner"
-      className={`${styles} flex h-nav items-center backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-8 px-12 py-8`}
+      className={`h-nav lg:flex items-center fixed  z-40 top-0 justify-between w-full leading-none gap-8 py-8 gutter`}
     >
       <div className="flex space-x-4">
         <Box isHome={isHome} />

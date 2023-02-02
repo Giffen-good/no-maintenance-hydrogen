@@ -12,7 +12,7 @@ import {
 import type {Blog} from '@shopify/hydrogen/storefront-api-types';
 import {Suspense} from 'react';
 
-import {CustomFont, PageHeader, Section} from '~/components';
+import {PageHeader, Section} from '~/components';
 import {Layout, NotFound} from '~/components/index.server';
 import {ATTR_LOADING_EAGER} from '~/lib/const';
 
@@ -60,8 +60,6 @@ export default function Post({params, response}: HydrogenRouteProps) {
 
   return (
     <Layout>
-      {/* Loads Fraunces custom font only on articles */}
-      <CustomFont />
       <Suspense>
         {/* @ts-expect-error Blog article types are not supported in TS */}
         <Seo type="page" data={data.blog.articleByHandle} />

@@ -1,16 +1,20 @@
 import {useState, useRef, useEffect, useCallback} from 'react';
 import {Link, flattenConnection} from '@shopify/hydrogen';
 
-import {Button, Grid, ProductCard} from '~/components';
+import {Button, Grid, TiledProductCard} from '~/components';
 import {getImageLoadingPriority} from '~/lib/const';
 import type {Collection, Product} from '@shopify/hydrogen/storefront-api-types';
 
 export function ProductGrid({
   url,
   collection,
+  layout,
+  alternateDesktopLayout,
 }: {
   url: string;
   collection: Collection;
+  layout?: 'products' | 'tiles';
+  alternateDesktopLayout?: boolean;
 }) {
   const nextButtonRef = useRef(null);
   const initialProducts = collection?.products?.nodes || [];
@@ -80,14 +84,22 @@ export function ProductGrid({
       </>
     );
   }
-
+  const hasAltTileLayoutOnDesktop =
+    layout === 'tiles' && alternateDesktopLayout;
+  const getGap = () => {
+    let lay = 'tiles';
+    if (alternateDesktopLayout) lay = 'hasAltTileLayoutOnDesktop';
+    return lay;
+  };
+  const gap = getGap();
   return (
     <>
-      <Grid layout="products">
+      <Grid layout={layout ? layout : 'tiles'} gap={gap}>
         {products.map((product, i) => (
-          <ProductCard
+          <TiledProductCard
             key={product.id}
             product={product}
+            alternateDesktopLayout={hasAltTileLayoutOnDesktop}
             loading={getImageLoadingPriority(i)}
           />
         ))}

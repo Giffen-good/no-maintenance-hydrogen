@@ -47,7 +47,13 @@ module.exports = {
         mobileGallery: 'calc(100vw - 3rem)',
       },
       fontFamily: {
-        sans: ['Helvetica Neue', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: [
+          '"SyndicatGrotesk"',
+          'Helvetica Neue',
+          'ui-sans-serif',
+          'system-ui',
+          'sans-serif',
+        ],
         serif: ['"IBMPlexSerif"', 'Palatino', 'ui-serif'],
       },
       fontSize: {
@@ -69,5 +75,5 @@ module.exports = {
     },
   },
   // eslint-disable-next-line node/no-unpublished-require
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'),  require('@tailwindcss/line-clamp'),],
 };

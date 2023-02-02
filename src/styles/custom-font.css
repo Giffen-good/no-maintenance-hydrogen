@@ -11,3 +11,75 @@
   font-style: italic;
   src: url('/fonts/IBMPlexSerif-TextItalic.woff2') format('woff2');
 }
+@font-face {
+  font-family: 'SyndicatGrotesk';
+  src: url('/fonts/SyndicatGrotesk-Bold.woff2' ) format('woff2'),
+url('/fonts/SyndicatGrotesk-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SyndicatGrotesk';
+  src: url('/fonts/SyndicatGrotesk-Light.woff2') format('woff2'),
+url('/fonts/SyndicatGrotesk-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SyndicatGrotesk';
+  src: url('/fonts/SyndicatGrotesk-BoldItalic.woff2') format('woff2'),
+  url('/fonts/SyndicatGrotesk-BoldItalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SyndicatGrotesk';
+  src: url('/fonts/SyndicatGrotesk-LightItalic.woff2') format('woff2'),
+    url('/fonts/SyndicatGrotesk-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+/* format all of my fonts from this format url({{ 'SyndicatGrotesk-Medium.woff2' | asset_url }}) to this format  url('/fonts/SyndicatGrotesk-Medium.woff2')
+  */
+@font-face {
+  font-family: 'SyndicatGrotesk';
+  src: url('/fonts/SyndicatGrotesk-Medium.woff2') format('woff2'),
+url('/fonts/SyndicatGrotesk-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SyndicatGrotesk';
+  src: url('/fonts/SyndicatGrotesk-RegularItalic.woff2') format('woff2'),
+url('/fonts/SyndicatGrotesk-RegularItalic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SyndicatGrotesk';
+  src: url('/fonts/SyndicatGrotesk-MediumItalic.woff2') format('woff2'),
+  url('/fonts/SyndicatGrotesk-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SyndicatGrotesk';
+  src: url('/fonts/SyndicatGrotesk-Regular.woff2') format('woff2'),
+  url('/fonts/SyndicatGrotesk-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

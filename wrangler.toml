@@ -1,0 +1,11 @@
+account_id = "66ea53c74698312c581000b3772b8304"
+compatibility_date = "2022-01-28"
+compatibility_flags = ["streams_enable_constructors"]
+main = "dist/worker/index.js"
+name = "no-maintenance"
+route = ""
+workers_dev = true
+[site]
+bucket = "dist/client"
+[build]
+command = "yarn && yarn build"

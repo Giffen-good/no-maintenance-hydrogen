@@ -36,7 +36,6 @@ export default function Collection({params}: HydrogenRouteProps) {
     },
     preload: true,
   });
-
   if (!collection) {
     return <NotFound type="collection" />;
   }
@@ -55,7 +54,7 @@ export default function Collection({params}: HydrogenRouteProps) {
       <Suspense>
         <Seo type="collection" data={collection} />
       </Suspense>
-      <PageHeader heading={collection.title}>
+      <div>
         {collection?.description && (
           <div className="flex items-baseline justify-between w-full">
             <div>
@@ -65,9 +64,11 @@ export default function Collection({params}: HydrogenRouteProps) {
             </div>
           </div>
         )}
-      </PageHeader>
-      <Section>
+      </div>
+      <Section padding={'y'}>
         <ProductGrid
+          alternateDesktopLayout={false}
+          layout={'tiles'}
           key={collection.id}
           collection={collection}
           url={`/collections/${handle}?country=${country}`}

@@ -6,17 +6,12 @@ export default defineConfig({
     defaultLanguageCode: 'EN',
     storeDomain:
       // @ts-ignore
-      Oxygen?.env?.PUBLIC_STORE_DOMAIN || 'hydrogen-preview.myshopify.com',
-    storefrontToken:
-      // @ts-ignore
-      Oxygen?.env?.PUBLIC_STOREFRONT_API_TOKEN ||
-      '3b580e70970c4528da70c98e097c2fa0',
-    privateStorefrontToken:
-      // @ts-ignore
-      Oxygen?.env?.PRIVATE_STOREFRONT_API_TOKEN,
-    storefrontApiVersion: '2022-07',
+      import.meta.env.VITE_PUBLIC_STOREFRONT_DOMAIN,
+    storefrontToken: import.meta.env.VITE_PUBLIC_STOREFRONT_API_TOKEN,
+    storefrontApiVersion: import.meta.env.VITE_STOREFRONT_API_VERSION,
     // @ts-ignore
-    storefrontId: Oxygen?.env?.PUBLIC_STOREFRONT_ID,
+    storefrontId: import.meta.env.VITE_STOREFRONT_ID,
+    privateStorefrontToken: import.meta.env.VITE_PRIVATE_STOREFRONT_API_TOKEN,
   },
   session: CookieSessionStorage('__session', {
     path: '/',

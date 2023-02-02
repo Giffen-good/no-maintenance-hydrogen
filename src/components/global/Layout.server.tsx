@@ -1,15 +1,15 @@
-import {Suspense} from 'react';
+import React, {Suspense} from 'react';
 import {useLocalization, useShopQuery, CacheLong, gql} from '@shopify/hydrogen';
 import type {Menu, Shop} from '@shopify/hydrogen/storefront-api-types';
 
-import {Header} from '~/components';
+import {CustomFont, Header} from '~/components';
 import {Footer} from '~/components/index.server';
 import {parseMenu} from '~/lib/utils';
 
-const HEADER_MENU_HANDLE = 'main-menu';
-const FOOTER_MENU_HANDLE = 'footer';
+const HEADER_MENU_HANDLE = '';
+const FOOTER_MENU_HANDLE = '';
 
-const SHOP_NAME_FALLBACK = 'Hydrogen';
+const SHOP_NAME_FALLBACK = 'No Maintenance';
 
 /**
  * A server component that defines a structure and organization of a page that can be used in different parts of the Hydrogen app
@@ -17,6 +17,7 @@ const SHOP_NAME_FALLBACK = 'Hydrogen';
 export function Layout({children}: {children: React.ReactNode}) {
   return (
     <>
+      <CustomFont />
       <div className="flex flex-col min-h-screen">
         <div className="">
           <a href="#mainContent" className="sr-only">
@@ -78,7 +79,6 @@ function useLayoutQuery() {
       - /collections/all -> /products
   */
   const customPrefixes = {BLOG: '', CATALOG: 'products'};
-
   const headerMenu = data?.headerMenu
     ? parseMenu(data.headerMenu, customPrefixes)
     : undefined;
@@ -113,6 +113,9 @@ const SHOP_QUERY = gql`
         ...MenuItem
         items {
           ...MenuItem
+          items {
+            ...MenuItem
+          }
         }
       }
     }
