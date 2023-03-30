@@ -19,6 +19,13 @@ const LINK_FRAGMENT = gql`
   }
 `;
 
+const EXTERNAL_MEDIA_FRAGMENT = gql`
+  fragment Media on Media {
+    image
+    mobileFallback
+    hasLazyLoad
+  }
+`;
 /**
  * General Component Config used across all components
  * @type {string}
@@ -47,12 +54,13 @@ export const HY_PAGE_SEO_FRAGMENT = gql`
     hasTitleTemplate
   }
 `;
-
 const HY_TILE_FRAGMENT = gql`
   ${LINK_FRAGMENT}
+  ${EXTERNAL_MEDIA_FRAGMENT}
   fragment Tile on Tile {
-    backgroundMedia
-    mobileFallbackMedia
+    backgroundMedia {
+      ...Media
+    }
     heading
     link {
       ...Link

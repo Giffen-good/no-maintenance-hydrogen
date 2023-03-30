@@ -19,8 +19,8 @@ export function Heading({
 } & React.HTMLAttributes<HTMLHeadingElement>) {
   const sizes = {
     display: 'font-bold text-display',
-    heading: 'font-bold text-heading',
-    lead: 'font-bold text-lead',
+    heading: 'text-heading',
+    lead: 'text-lead',
     copy: 'font-medium text-copy',
   };
 

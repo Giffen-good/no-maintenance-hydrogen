@@ -6,7 +6,7 @@ import {CustomFont, Header} from '~/components';
 import {Footer} from '~/components/index.server';
 import {parseMenu} from '~/lib/utils';
 
-const HEADER_MENU_HANDLE = '';
+const HEADER_MENU_HANDLE = 'new-main-menu';
 const FOOTER_MENU_HANDLE = '';
 
 const SHOP_NAME_FALLBACK = 'No Maintenance';
@@ -67,7 +67,6 @@ function useLayoutQuery() {
     cache: CacheLong(),
     preload: '*',
   });
-
   const shopName = data ? data.shop.name : SHOP_NAME_FALLBACK;
 
   /*
@@ -82,7 +81,6 @@ function useLayoutQuery() {
   const headerMenu = data?.headerMenu
     ? parseMenu(data.headerMenu, customPrefixes)
     : undefined;
-
   const footerMenu = data?.footerMenu
     ? parseMenu(data.footerMenu, customPrefixes)
     : undefined;

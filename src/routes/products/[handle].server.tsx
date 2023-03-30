@@ -2,6 +2,7 @@ import {Suspense} from 'react';
 import {
   ClientAnalytics,
   gql,
+  Money,
   ProductOptionsProvider,
   Seo,
   ShopifyAnalyticsConstants,
@@ -22,6 +23,7 @@ import {
   Section,
   Text,
 } from '~/components';
+import {ProductPriceClient} from '~/components/product/ProductPrice.client';
 
 export default function Product() {
   const {handle} = useRouteParams();
@@ -82,20 +84,27 @@ export default function Product() {
       </Suspense>
       <ProductOptionsProvider data={product}>
         <Section padding="x" className="px-0">
-          <div className="grid items-start md:gap-6 lg:gap-20 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid items-start md:grid-cols-2">
             <ProductGallery
               media={media.nodes}
-              className="w-screen md:w-full lg:col-span-2"
+              className="w-screen md:w-full lg:col-span-1"
             />
             <div className="sticky md:-mb-nav md:top-nav md:-translate-y-nav md:h-screen md:pt-nav hiddenScroll md:overflow-y-scroll">
-              <section className="flex flex-col w-full max-w-xl gap-8 p-6 md:mx-auto md:max-w-sm md:px-0">
+              <section className="flex flex-col w-full max-w-xl gap-8 p-6 md:mx-auto md:max-w-md md:px-0">
                 <div className="grid gap-2">
-                  <Heading as="h1" format className="whitespace-normal">
-                    {title}
-                  </Heading>
-                  {vendor && (
-                    <Text className={'opacity-50 font-medium'}>{vendor}</Text>
-                  )}
+                  <div className={'flex space-between'}>
+                    <Heading
+                      as="h1"
+                      format
+                      className="whitespace-normal flex-1"
+                    >
+                      {title}
+                    </Heading>
+                    <ProductPriceClient />
+                  </div>
+                  {/*{vendor && (*/}
+                  {/*  <Text className={'opacity-50 font-medium'}>{vendor}</Text>*/}
+                  {/*)}*/}
                 </div>
                 <ProductForm />
                 <div className="grid gap-4 py-4">

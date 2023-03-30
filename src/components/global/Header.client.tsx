@@ -78,7 +78,7 @@ function MobileHeader({
   const {y} = useWindowScroll();
 
   const styles = {
-    button: 'relative flex items-center justify-center w-8 h-8',
+    button: 'relative flex items-center justify-center w-8 h-8 uppercase',
     container: `flex lg:hidden items-center h-nav sticky backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-4 px-4 md:px-8`,
   };
 
@@ -151,36 +151,47 @@ function DesktopHeader({
 
   const styles = {
     button:
-      'relative flex items-center justify-center w-8 h-8 focus:ring-primary/5',
-    container: `h-nav lg:flex items-center fixed  z-40 top-0 justify-between w-full leading-none gap-8 py-6 gutter`,
+      'uppercase relative flex items-center justify-center focus:ring-primary/5 pl-4',
+    container: `h-nav grid grid-cols-2 items-center fixed  z-40 top-0 justify-between w-full leading-none pt-2 gutter`,
   };
 
   return (
     <header role="banner" className={styles.container}>
-      <div className="flex gap-12">
-        <Link className={`font-bold text-4xl uppercase`} to="/">
+      <div>
+        <Link
+          className={`font-bold text-3xl uppercase whitespace-nowrap `}
+          to="/"
+        >
           {title}
         </Link>
-        <nav className="flex gap-8">
-          {/* Top level menu items */}
-          {(menu?.items || []).map((item) => {
-            if (item.type === 'HTTP') {
-              return <DropdownMenu key={item.id} item={item} />;
-            } else {
-              return (
-                <Link
-                  key={item.id}
-                  to={item.to}
-                  target={item.target}
-                  className={'flex items-center'}
-                >
-                  {item.title}
-                </Link>
-              );
-            }
-          })}
-        </nav>
       </div>
+      <nav className="flex uppercase justify-between pl-4">
+        {/* Top level menu items */}
+        {(menu?.items || []).map((item) => {
+          if (item.type === 'HTTP') {
+            return <DropdownMenu key={item.id} item={item} />;
+          } else {
+            return (
+              <Link
+                key={item.id}
+                to={item.to}
+                target={item.target}
+                className={'flex items-center pl-4'}
+              >
+                {item.title}
+              </Link>
+            );
+          }
+        })}
+        <span className={styles.button}>Search</span>
+        <Link to={'/account'} className={styles.button}>
+          Account
+        </Link>
+        <button onClick={openCart} className={styles.button}>
+          Cart
+          <CartBadge dark={isHome} />
+        </button>
+      </nav>
       <div className="flex items-center gap-1 hidden">
         <form
           action={`/${countryCode ? countryCode + '/' : ''}search`}
@@ -201,13 +212,6 @@ function DesktopHeader({
             Search
           </button>
         </form>
-        <Link to={'/account'} className={styles.button}>
-          Account
-        </Link>
-        <button onClick={openCart} className={styles.button}>
-          Cart
-          <CartBadge dark={isHome} />
-        </button>
       </div>
     </header>
   );

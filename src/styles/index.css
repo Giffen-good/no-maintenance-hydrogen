@@ -22,8 +22,8 @@
     --height-nav: 4rem;
   }
   @media (min-width: 48em) {
-    --height-nav: 6rem;
-    --font-size-heading: 2.25rem; /* text-4xl */
+    --height-nav: 4rem;
+    --font-size-heading: 2rem; /* text-4xl */
     --font-size-display: 3.75rem; /* text-6xl */
   }
   @supports (height: 100svh) {
@@ -51,11 +51,7 @@
   }
 }
 
-shop-pay-button {
-  width: 100%;
-  height: 3rem;
-  display: table;
-}
+
 
 @layer base {
   * {
@@ -106,6 +102,11 @@ shop-pay-button {
 }
 
 @layer components {
+  .btn-primary {
+    @apply font-medium tracking-wider leading-4 text-center text-black uppercase border py-5
+    break-words cursor-pointer;
+
+  }
   .flush {
     @apply px-0;
   }
@@ -321,6 +322,9 @@ shop-pay-button {
   .aspect_16x9 .image-container {
     padding-bottom:56.25%;
   }
+  .aspect_9x16 .image-container {
+    padding-bottom:177%;
+  }
   .aspect_fullscreen .image-container {
     padding-bottom:100vh;
   }
@@ -365,6 +369,9 @@ shop-pay-button {
     .aspect_16x9_m .image-container {
       padding-bottom:56.25%;
     }
+    .aspect_9x16_m .image-container {
+      padding-bottom:177%;
+    }
     .aspect_fullscreen_m .image-container {
       padding-bottom:100vh;
     }
@@ -375,6 +382,12 @@ shop-pay-button {
   }
   .product-card:hover .hide-on-desktop .img-overlay {
     @apply lg:opacity-30;
+  }
+  .img-overlay {
+    @apply hidden;
+  }
+  .hide-on-desktop .img-overlay {
+    @apply lg:block;
   }
   .product-card:hover .hide-on-desktop .product-card-text-container {
     @apply lg:opacity-100 lg:-translate-y-0;
@@ -428,4 +441,13 @@ shop-pay-button {
       @apply object-cover w-full aspect-[inherit];
     }
   }
+}
+
+shop-pay-button {
+  width: 100%;
+  height: 3.7rem;
+  display: table;
+}
+#shop-pay-button-link {
+  border-radius: 0 !important;
 }

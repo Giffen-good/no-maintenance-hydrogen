@@ -55,10 +55,10 @@ export function TiledProductCard({
   const styles = alternateDesktopLayout
     ? {
         container: clsx(
-          'grid gap-3 lg:gap-0 lg:relative hide-on-desktop',
+          'grid gap-3 lg:gap-0 relative hide-on-desktop',
           className,
         ),
-        text: clsx('lg:absolute bottom-0 left-0 w-full lg:p-4 ', className),
+        text: clsx('lg:absolute bottom-0 left-0 w-full ', className),
       }
     : {
         container: clsx('grid gap-3', className),
@@ -99,10 +99,12 @@ export function TiledProductCard({
         </div>
         <div
           className={
-            'bg-white transition-all duration-500 h-full w-full opacity-0 img-overlay absolute inset-0 left-0 top-0'
+            'bg-white transition-all duration-500 h-full w-full opacity-0 img-overlay absolute inset-0 left-0 top-0 '
           }
         ></div>
-        <div className={`${styles.text} product-card-text-container`}>
+        <div
+          className={`${styles.text} product-card-text-container py-0 lg:py-4 px-4`}
+        >
           <div className={' flex justify-between'}>
             <Text className="w-full line-clamp-2" as="h3">
               {product.title}

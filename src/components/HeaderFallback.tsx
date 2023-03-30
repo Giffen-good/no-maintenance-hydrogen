@@ -2,7 +2,7 @@ export function HeaderFallback({isHome}: {isHome?: boolean}) {
   return (
     <header
       role="banner"
-      className={`h-nav lg:flex items-center fixed  z-40 top-0 justify-between w-full leading-none gap-8 py-8 gutter`}
+      className={`flex lg:hidden items-center h-nav sticky backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-4 px-4 md:px-8`}
     >
       <div className="flex space-x-4">
         <Box isHome={isHome} />

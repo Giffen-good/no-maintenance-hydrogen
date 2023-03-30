@@ -1,5 +1,5 @@
 import {Nullable} from 'vitest';
-import {scalarOptions} from "yaml";
+import {scalarOptions} from 'yaml';
 import Null = scalarOptions.Null;
 
 type RGB = `rgb(${number}, ${number}, ${number})`;

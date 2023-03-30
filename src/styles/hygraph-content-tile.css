@@ -184,6 +184,9 @@
 .aspect_16x9 .image-container {
     padding-bottom:56.25%;
 }
+.aspect_9x16 .image-container {
+    padding-bottom:177%;
+}
 .aspect_fullscreen .image-container {
     padding-bottom:100vh;
 }
@@ -227,6 +230,9 @@
     }
     .aspect_16x9_m .image-container {
         padding-bottom:56.25%;
+    }
+    .aspect_9x16_m .image-container {
+        padding-bottom:177%;
     }
     .aspect_fullscreen_m .image-container {
         padding-bottom:100vh;

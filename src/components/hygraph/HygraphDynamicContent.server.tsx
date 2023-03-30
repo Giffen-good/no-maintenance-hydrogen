@@ -6,7 +6,7 @@ import {
 
 export const HygraphDynamicContent = ({content}: {content: any}) => {
   return (
-    <div>
+    <>
       {content.map((c: any, idx: number) => (
         <HygraphComponentWrapper
           config={c.generalConfig}
@@ -16,7 +16,7 @@ export const HygraphDynamicContent = ({content}: {content: any}) => {
           <ModuleSwitcher {...c} />
         </HygraphComponentWrapper>
       ))}
-    </div>
+    </>
   );
 };
 

@@ -33,7 +33,7 @@ function OptionsGrid({
   const {selectedOptions} = useProductOptions();
 
   return (
-    <>
+    <div className={'grid grid-cols-3 gap-2 w-full'}>
       {values.map((value) => {
         const checked = selectedOptions![name] === value;
         const id = `option-${name}-${value}`;
@@ -50,8 +50,8 @@ function OptionsGrid({
               onChange={() => handleChange(name, value)}
             />
             <div
-              className={`leading-none py-1 border-b-[1.5px] cursor-pointer transition-all duration-200 ${
-                checked ? 'border-primary/50' : 'border-primary/0'
+              className={`btn-primary duration-200 ${
+                checked ? 'border-primary/50' : 'border-primary/20'
               }`}
             >
               {value}
@@ -59,7 +59,7 @@ function OptionsGrid({
           </Text>
         );
       })}
-    </>
+    </div>
   );
 }
 

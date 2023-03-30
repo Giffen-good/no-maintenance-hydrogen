@@ -6,9 +6,9 @@ import {
 import {ReactNode} from 'react';
 import {Link} from '@shopify/hydrogen';
 import {Nullable} from 'vitest';
-import {HygraphMediaServer} from '~/components/hygraph/HygraphMedia.server';
 import {getCSS} from '~/lib';
 import {COMPONENT_DEFAULTS} from '~/lib/const';
+import {HygraphExternalMedia} from '~/components/hygraph/HygraphExternalMedia';
 
 export const HygraphContentTiles = ({
   aspectRatio,
@@ -37,11 +37,11 @@ const TileComponent = ({t}: {t: HygraphSingleTile}) => {
   const styles = getCSS(null, t.textColor);
   return (
     <div className={`${getTextPosClasses(rawTextPos)} generic-block relative`}>
+      <HygraphExternalMedia
+        media={t.backgroundMedia}
+        className="absolute h-full w-full object-cover"
+      />
       <CTAWrapper link={t.link}>
-        <HygraphMediaServer
-          media={t.backgroundMedia}
-          className={'absolute h-full w-full object-cover'}
-        />
         {t.hasOverlayOnHover && (
           <div
             className={`absolute inset-0 h-full w-full top-0 left-0 bg-black opacity-0 opass-overlay`}

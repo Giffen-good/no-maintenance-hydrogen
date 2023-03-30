@@ -32,7 +32,7 @@ export function Grid({
   };
 
   const gaps = {
-    default: 'grid gap-2 gap-y-6 md:gap-4 lg:gap-6',
+    default: 'grid gap-2 gap-y-6 md:gap-4 lg:gap1-6',
     blog: 'grid gap-6',
     tiles: 'grid gap-x-0 gap-y-8',
     hasAltTileLayoutOnDesktop: 'grid gap-x-0 gap-y-8 lg:gap-y-0',

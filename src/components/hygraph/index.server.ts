@@ -4,3 +4,4 @@ export {HygraphDynamicContent} from './HygraphDynamicContent.server';
 export {HygraphShopifyFeaturedCollection} from './HygraphShopifyFeaturedCollection.server';
 export {HygraphContentTiles} from './HygraphContentTiles.server';
 export {HygraphComponentWrapper} from './HygraphComponentWrapper.server';
+export {HygraphExternalMedia} from './HygraphExternalMedia';
